@@ -30,8 +30,8 @@
         return arrays.flat()
       }
 
-      console.log(concatenateArrays([1,2,3], [4,5]));
-      console.log(concatenateArrays(["1","2"], ["3"]));
+      concatenateArrays([1,2],[3,4])
+    
 
 
 
