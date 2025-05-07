@@ -63,6 +63,19 @@
   myCar.getModel(); 
   
 
+
+  const processValue = (value: string | number) =>{
+    if(typeof value === 'string'){
+        return value.length;
+    }else{
+        return value*2;
+    }
+  }
+
+  processValue("Hello")
+  processValue(10)
+
+
   
 
 
