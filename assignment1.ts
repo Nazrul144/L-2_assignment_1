@@ -7,6 +7,8 @@
   formatString("Hello", true);
   formatString("Hello", false);
 
+
+
   const filterByRating = (items: { title: string; rating: number }[]): { title: string; rating: number }[] => {
     return items.filter((item) => item.rating >= 4);
   };
@@ -19,11 +21,16 @@
 
   filterByRating(books);
 
+
+
+
   const concatenateArrays = <T>(...arrays: T[][]): T[] => {
     return arrays.flat();
   };
 
   concatenateArrays([1, 2], [3, 4]);
+
+
 
   class Vehicle {
     private make: string;
@@ -37,7 +44,6 @@
       return `Make: ${this.make}, Year: ${this.year}`;
     }
   }
-
   class Car extends Vehicle {
     private model: string;
     constructor(make: string, year: number, model: string) {
@@ -52,6 +58,9 @@
   const myCar = new Car("Toyota", 2020, "Corolla");
   myCar.getInfo();
   myCar.getModel();
+
+
+
 
   const processValue = (value: string | number) => {
     if (typeof value === "string") {
@@ -68,6 +77,10 @@
     name: string;
     price: number;
   }
+
+
+
+
 
   const getMostExpensiveProduct = (products: Product[]): Product | null => {
     if (products.length === 0) {
@@ -98,8 +111,6 @@
 
 
 
-
-
   enum Day {
     Monday,
     Tuesday,
@@ -118,29 +129,26 @@
     }
   };
 
-  getDayType(Day.Monday); 
-  getDayType(Day.Sunday); 
-
-
-
-
-const squareAsync = async (n: number): Promise<number> => {
-  if (n < 0) {
-    throw new Error("Negative number not allowed"); 
-  }
-
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  return n * n;  
-};
-
-squareAsync(5).then(console.log);        
-squareAsync(-3).catch(console.error);
+  getDayType(Day.Monday);
+  getDayType(Day.Sunday);
 
 
 
 
 
+  const squareAsync = async (n: number): Promise<number> => {
+    return new Promise(async (resolve, reject) => {
+      if (n < 0) {
+        reject(new Error("Negative number not allowed"));
+      } else {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        resolve(n * n);
+      }
+    });
+  };
+
+  squareAsync(4).then(console.log);
+  squareAsync(-3).catch(console.error);
 
 
 
