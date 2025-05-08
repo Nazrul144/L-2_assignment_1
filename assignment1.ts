@@ -76,8 +76,41 @@
   processValue(10)
 
 
+  interface Product {
+    name: string;
+    price: number;
+  }
   
+  const getMostExpensiveProduct = (products: Product[]): Product | null => {
+    if (products.length === 0) {
+      return null;
+    } else {
+      let mostExpensiveProduct = products[0];
+  
+      for (const product of products) {
+        if (product.price > mostExpensiveProduct.price) {
+          mostExpensiveProduct = product;
+        }
+      }
+      return mostExpensiveProduct;
+    }
+  };
+  
+  const products = [
+    { name: "Pen", price: 10 },
+    { name: "Notebook", price: 25 },
+    { name: "Bag", price: 50 }
+  ];
+  
+  const emptyProduct : Product[] = []
 
+  getMostExpensiveProduct(products)
+  getMostExpensiveProduct(emptyProduct)
+
+
+
+
+  
 
 
 }
