@@ -98,7 +98,7 @@
 
 
 
-  
+
 
   enum Day {
     Monday,
@@ -120,6 +120,26 @@
 
   getDayType(Day.Monday); 
   getDayType(Day.Sunday); 
+
+
+
+
+const squareAsync = async (n: number): Promise<number> => {
+  if (n < 0) {
+    throw new Error("Negative number not allowed"); 
+  }
+
+  await new Promise(resolve => setTimeout(resolve, 1000));
+
+  return n * n;  
+};
+
+squareAsync(5).then(console.log);        
+squareAsync(-3).catch(console.error);
+
+
+
+
 
 
 
